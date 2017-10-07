@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,9 +30,10 @@ public class HelloServlet extends HttpServlet {
 		
 		PrintWriter out = resp.getWriter();
 		out.println("For Entire Life - Hello Servlet will be calling doGet and doPost");
-		
-		resp.flushBuffer();
 	
+		// Sending information to Client Computer 
+		Cookie cookie = new Cookie("WebSite", "Amazon.com");
+		resp.addCookie(cookie);
 	}
 	
 	

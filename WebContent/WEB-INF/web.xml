@@ -13,5 +13,46 @@
 		<servlet-name>Hello</servlet-name>
 		<url-pattern>/hello</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>req</servlet-name>
+		<servlet-class>com.h2k.servlet.ReqTestServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>req</servlet-name>
+		<url-pattern>/req</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>resp</servlet-name>
+		<servlet-class>com.h2k.servlet.RespTestServlet</servlet-class>
+		<init-param>
+			<param-name>DBName</param-name>
+			<param-value>Sybase</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>resp</servlet-name>
+		<url-pattern>/resp</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>logging</filter-name>
+		<filter-class>com.h2k.servlet.filter.LoggingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>logging</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	<filter>
+		<filter-name>audit</filter-name>
+		<filter-class>com.h2k.servlet.filter.AuditingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>audit</filter-name>
+		<url-pattern>/resp</url-pattern>
+	</filter-mapping>
 
 </web-app>
