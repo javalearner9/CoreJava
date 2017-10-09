@@ -39,6 +39,10 @@
 	<filter>
 		<filter-name>logging</filter-name>
 		<filter-class>com.h2k.servlet.filter.LoggingFilter</filter-class>
+		<init-param>
+			<param-name>filterInput</param-name>
+			<param-value>Value Of Filter Init Param</param-value>
+		</init-param>
 	</filter>
 	<filter-mapping>
 		<filter-name>logging</filter-name>
@@ -54,5 +58,25 @@
 		<filter-name>audit</filter-name>
 		<url-pattern>/resp</url-pattern>
 	</filter-mapping>
-
+	
+	<servlet>
+		<servlet-name>session</servlet-name>
+		<servlet-class>com.h2k.servlet.SessionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>session</servlet-name>
+		<url-pattern>/session</url-pattern>
+	</servlet-mapping>
+	
+	<!--  This Session timeout is in minutes -->
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
+	
+	<listener>
+		<listener-class>com.h2k.servlet.listener.ServletContextListenerImpl</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.h2k.servlet.listener.ServletContextAttibuteListernerImpl</listener-class>
+	</listener>
 </web-app>

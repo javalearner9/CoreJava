@@ -3,6 +3,7 @@ package com.h2k.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +35,15 @@ public class HelloServlet extends HttpServlet {
 		// Sending information to Client Computer 
 		Cookie cookie = new Cookie("WebSite", "Amazon.com");
 		resp.addCookie(cookie);
+		
+		ServletContext context = getServletContext();
+		context.setAttribute("FirstAttr" , "FirstAttr Value ");
+		context.setAttribute("SecondAttr" , "SecondAttr Value ");
+		
+		context.removeAttribute("SecondAttr");
+		context.setAttribute("FirstAttr", "Changed the Value"); 
+		
+		
 	}
 	
 	

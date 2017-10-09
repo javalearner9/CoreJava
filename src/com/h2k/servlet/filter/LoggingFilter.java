@@ -31,7 +31,8 @@ public class LoggingFilter implements Filter {
 	@Override
 	public void init(FilterConfig config) throws ServletException {
 		System.out.println("Init Method for LoggingFilter");
-		
+		String paramValue = config.getInitParameter("filterInput");
+		System.out.println("Filter Init Parameter filterInput :: " + paramValue);
 	}
 
 }
