@@ -15,10 +15,8 @@ String variable = "This is also a String variable";
 %>
 
  <c:set var = "string1" value = "This is first String."/>
-    <c:set var = "string2" value = "This <abc>is second String.</abc>"/>
-      Index (1) : ${fn:indexOf(string1, "first")}
-      Index (2) : ${fn:indexOf(string2, "second")}
-      ${fn:indexOf("My name is Chaitanya Singh", "chaitanya")}
+ <c:set var = "string2" value = "This <abc>is second String.</abc>"/>
+      Index of "n" in the string "India" :: ${fn:indexOf("indiancity","n")}
 
 </body>
 </html>
